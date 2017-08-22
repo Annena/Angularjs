@@ -1,0 +1,65 @@
+<!-- Content Wrapper. Contains page content -->
+    <!-- Content Header (Page header) -->
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3" style="display:inline-block">群组创建</h1>
+       <!--<a ui-sref="app.workgroup.workgroup"><button class="btn btn-default" style="float:right">返回</button></a>  --> 
+    </div>
+
+    <!-- Main content -->
+    <!-- form start -->
+<div class="wrapper-md" ng-controller="groupEdit">
+    <form class="form-horizontal"  style=""  >
+        <div class="box-body">
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label ng-valid " ng-model="name" readonly>群组名</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="name" placeholder="AAAA" required="required" ng-model="workgroup.name">
+                    </div>           
+            </div>
+            <div class="form-group">
+            	<label  for="description" class="col-sm-2 control-label">群组描述</label>
+                     <div class="col-sm-6">
+                         <textarea class="form-control" rows="3" placeholder="Enter ..." id="description" ng-model="workgroup.description"></textarea>
+                     </div>
+            </div>
+            <div ng-repeat="list in addList" class='form-group'>
+           		<label  class="col-sm-2 control-label" >{{list.name}}</label>
+             	<div class="col-sm-2">
+                	<input type="text" class="form-control" id=""  required="required" ng-model="list.value">
+            	</div>
+            </div>                                
+        </div>
+                                <!-- /.box-body -->
+            <div class="box-footer form-group">
+               <label  class="col-sm-2 control-label"></label>
+               <button type="submit" class="btn btn-default " ng-click="Clear()"  style='margin-right:1%;'>返回</button>
+               <button type="submit" class="btn btn-success " ng-click="Ok()" ng-disabled='!workgroup.name || isdisabled'>创建</button>
+            </div>
+<!-- /.box-footer -->
+     </form>
+     <!-- <form class="form-horizontal">
+	 	<h4 style="display:inline-block;cursor:pointer;" ng-click="showAddAttr()">添加属性</h4>
+     	<i class="icon-pencil"></i>
+     	<hr style="border-top:0.5px solid #ccc;margin-top:0;"></hr>
+     	<div ng-show='isShow'>
+        	<div class="form-group">
+            	<label for="name" class="col-sm-2 control-label ng-valid " ng-model="add_name">属性名</label>
+                	<div class="col-sm-2">
+                    	<input type="text" class="form-control" id="add_name" placeholder="属性名" required="required" ng-model="add_name ">
+                	</div>  
+        	</div>
+        	<div class="form-group">
+            	<label for="name" class="col-sm-2 control-label ng-valid " ng-model="add_attr">属性值</label>
+                	<div class="col-sm-2">
+                    	<input type="text" class="form-control" id="add_attr" placeholder="属性值" required="required" ng-model="add_attr">
+                	</div>  
+         	</div>
+        	<div class="form-group" >
+            	<label  class="col-sm-2 control-label" ></label>
+					<button type="submit" class="btn btn-info "  ng-click=" Add()" >添加</button>                                    
+       	    </div>
+     	</div>
+      </form> -->
+<!--box-body-->
+</div>
+<!-- /.box -->

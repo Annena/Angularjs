@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="gatewayApp.monitorPoint.detail.title">Monitor Point</span> {{vm.monitorPoint.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="gatewayApp.monitorPoint.name">Name</span></dt>
+        <dd>
+            <span>{{vm.monitorPoint.name}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.monitorPoint.description">Description</span></dt>
+        <dd>
+            <span>{{vm.monitorPoint.description}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.monitorPoint.samplingPeriod">Sampling Period</span></dt>
+        <dd>
+            <span>{{vm.monitorPoint.samplingPeriod}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.monitorPoint.isChangeSample">Is Change Sample</span></dt>
+        <dd>
+            <span>{{vm.monitorPoint.isChangeSample}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.monitorPoint.reportItemsNum">Report Items Num</span></dt>
+        <dd>
+            <span>{{vm.monitorPoint.reportItemsNum}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.monitorPoint.reportPeriod">Report Period</span></dt>
+        <dd>
+            <span>{{vm.monitorPoint.reportPeriod}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.monitorPoint.workgroup">Workgroup</span></dt>
+        <dd>
+            <a ui-sref="workgroup-iot-detail({id:vm.monitorPoint.workgroupId})">{{vm.monitorPoint.workgroupName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="monitor-point-iot-detail.edit({id:vm.monitorPoint.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

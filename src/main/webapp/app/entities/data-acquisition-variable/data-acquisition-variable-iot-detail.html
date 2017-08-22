@@ -1,0 +1,83 @@
+
+<div>
+    <h2><span data-translate="gatewayApp.dataAcquisitionVariable.detail.title">Data Acquisition Variable</span> {{vm.dataAcquisitionVariable.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.name">Name</span></dt>
+        <dd>
+            <span>{{vm.dataAcquisitionVariable.name}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.description">Description</span></dt>
+        <dd>
+            <span>{{vm.dataAcquisitionVariable.description}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.uint">Uint</span></dt>
+        <dd>
+            <span>{{vm.dataAcquisitionVariable.uint}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.getCycle">Get Cycle</span></dt>
+        <dd>
+            <span>{{vm.dataAcquisitionVariable.getCycle}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.dcAddrMapId">Dc Addr Map Id</span></dt>
+        <dd>
+            <span>{{vm.dataAcquisitionVariable.dcAddrMapId}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.dcAddrMapName">Dc Addr Map Name</span></dt>
+        <dd>
+            <span>{{vm.dataAcquisitionVariable.dcAddrMapName}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.offsetAddr">Offset Addr</span></dt>
+        <dd>
+            <span>{{vm.dataAcquisitionVariable.offsetAddr}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.startAddr">Start Addr</span></dt>
+        <dd>
+            <span>{{vm.dataAcquisitionVariable.startAddr}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.endAddr">End Addr</span></dt>
+        <dd>
+            <span>{{vm.dataAcquisitionVariable.endAddr}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.valueType">Value Type</span></dt>
+        <dd>
+            <span>{{vm.dataAcquisitionVariable.valueType}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.dataType">Data Type</span></dt>
+        <dd>
+            <span>{{vm.dataAcquisitionVariable.dataType}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.dataBits">Data Bits</span></dt>
+        <dd>
+            <span>{{vm.dataAcquisitionVariable.dataBits}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.readWriteType">Read Write Type</span></dt>
+        <dd>
+            <span>{{vm.dataAcquisitionVariable.readWriteType}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.byteCode">Byte Code</span></dt>
+        <dd>
+            <span>{{vm.dataAcquisitionVariable.byteCode}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.funcCode">Func Code</span></dt>
+        <dd>
+            <span>{{vm.dataAcquisitionVariable.funcCode}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.dataAcquisitionVariable.dataAcquisitionDevice">Data Acquisition Device</span></dt>
+        <dd>
+            <a ui-sref="data-acquisition-device-iot-detail({id:vm.dataAcquisitionVariable.dataAcquisitionDeviceId})">{{vm.dataAcquisitionVariable.dataAcquisitionDeviceName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="data-acquisition-variable-iot-detail.edit({id:vm.dataAcquisitionVariable.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

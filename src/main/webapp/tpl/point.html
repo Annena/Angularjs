@@ -1,0 +1,36 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">监控点</h1>
+</div>
+<div class="wrapper-md" ng-controller="pointGrid">
+  <div class="panel panel-default">
+    <div>
+      <!-- Contextual button for informational alert messages -->
+      <ul class="list-inline">
+        <li style="display:block"><a ui-sref="app.point.createpoint"><button type="button" class="btn btn-default Gateway_add" style="margin:10px;color:#1d75b3;" >添加监控点</button></a></li>
+      	<li class="selectbox">
+       	    <form class="form-inline" style="padding-left:15px; margin:1% 0">
+ 				<div class="form-group" style="padding-right:15px;">
+    				<label for="gateway_type_id">网关类型: </label>
+    				<div style="position:relative;display:inline-block">
+    				<input type="text" class="form-control" ng-model="gateway_search" placeholder="请选择筛选条件" ng-blur="change=false" ng-focus="change=true">
+  					<select multiple class="form-control" style='position:absolute;top:34px;z-index:999;width:100%;'  ng-show='change' ng-model="gatewaytype"  ng-options="gatewaytype.name  for gatewaytype in gatewaytypes |filter:{name:gateway_search}" ng-click='selectGateway(gatewaytype)'>
+                    </select></div>
+  				</div>
+  				<div class="form-group" style="padding-right:15px">
+    				<label for="gateway_type_id">群组: </label>
+    				<div style="position:relative;display:inline-block;">
+    				<input type="text" class="form-control" ng-model="workgroup_search" placeholder="请选择筛选条件"  ng-blur="change01=false" ng-focus="change01=true">
+  					<select multiple class="form-control" ng-model="grouptype" ng-show='change01' style='position:absolute;top:34px;z-index:999;width:100%;'  ng-options="grouptype.name   for grouptype in workgroups | filter:{name:workgroup_search}" ng-click='selectWorkgroup(grouptype)'>  
+                    </select></div>
+  					
+  				</div>
+  				<button type="submit" class="btn btn-primary" ng-click="clear()">清空所有筛选条件</button>
+			</form>       			    	
+        </li>
+      </ul>
+    </div>
+    <div class="table-responsive">
+      <div ng-grid="gridOptions" style="min-height:540px" class="hiddenX"></div>
+    </div>
+  </div>
+  </div>

@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "monitorPoint",
+            "otherEntityName": "monitorPoint",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "appId",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170310080817",
+    "javadoc": "监控点属性",
+    "entityTableName": "monitor_point_attribute",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "microserviceName": "config",
+    "angularJSSuffix": "iot"
+}

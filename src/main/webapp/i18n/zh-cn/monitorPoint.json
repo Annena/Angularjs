@@ -1,0 +1,33 @@
+{
+    "gatewayApp": {
+        "monitorPoint" : {
+            "home": {
+                "title": "Monitor Points",
+                "createLabel": "Create a new Monitor Point",
+                "createOrEditLabel": "Create or edit a Monitor Point"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Monitor Point {{ id }}?"
+            },
+            "detail": {
+                "title": "Monitor Point"
+            },
+            "name": "Name",
+            "description": "Description",
+            "samplingPeriod": "Sampling Period",
+            "isChangeSample": "Is Change Sample",
+            "reportItemsNum": "Report Items Num",
+            "reportPeriod": "Report Period",
+            "monitorPointAttribute": "Monitor Point Attribute",
+            "dataAcquisitionDevice": "Data Acquisition Device",
+            "workgroup": "Workgroup"
+        }
+    },
+    "configApp": {
+        "monitorPoint" : {
+            "created": "A new Monitor Point is created with identifier {{ param }}",
+            "updated": "A Monitor Point is updated with identifier {{ param }}",
+            "deleted": "A Monitor Point is deleted with identifier {{ param }}"
+        }
+    }
+}

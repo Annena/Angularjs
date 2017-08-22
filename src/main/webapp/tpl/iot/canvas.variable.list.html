@@ -1,0 +1,21 @@
+<div ng-controller="VariableListCtrl">
+<div class="bg-light lter b-b wrapper-md">
+  <h5 class="m-n font-thin h5">
+      <a class="cmd-button">网关: {{gatewayName}}</a> >>
+      <a class="cmd-button">监控点 : {{pointName}}</a> >>
+  	  <a class="cmd-button">采集设备 : {{collectorName}}</a> >>
+  	      采集变量
+  </h5>
+</div>
+<div class="wrapper-md" >
+	<div>
+   		<button class="btn btn-blue" ng-click="create()"><span class="glyphicon glyphicon-plus"></span> 添加</button>
+   		<button class="btn btn-blue" ng-click="Cancel()"><span class="glyphicon glyphicon-chevron-left"></span> 返回</button>
+	</div>
+  <div class="panel panel-default">
+    <div class="table-responsive">
+      <div ng-grid="gridOptions" style="min-height:400px" class="hiddenX"></div>
+    </div>
+  </div>
+</div>
+</div> 

@@ -1,0 +1,41 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">监控点上报策略详情</h1>
+</div>
+<div class="wrapper-md" ng-controller="detailsPointReportCtrl">
+	<form class="form-horizontal"  style="background:#fff;padding:4px;border-radius:4px"  >
+        <div class="box-body">
+        	<div class="form-group">
+            	<label for="isCycleReport" class="col-sm-2 control-label ng-valid "  >是否周期上报</label>
+                	<div class="col-sm-2">
+                    	{{pointReport.isCycleReport}}
+                	</div>
+       	    </div>
+        	<div class="form-group">
+            	<label for="isChangeReport" class="col-sm-2 control-label ">是否修改报告</label>
+                	<div class="col-sm-2">
+                	{{pointReport.isChangeReport}}         	
+                	</div>
+        	</div>
+         	<div class="form-group">
+            	<label  for="reportPeriod" class="col-sm-2 control-label">报告周期</label>
+                	<div class="col-sm-6">
+                	{{pointReport.reportPeriod}}
+                	</div>
+        	</div>
+       	    <div class="form-group">
+            	<label  for="samplingPeriod" class="col-sm-2 control-label">采样周期</label>
+                	<div class="col-sm-6">
+                	{{pointReport.samplingPeriod}}
+                	</div>
+        	</div>
+         	
+    	</div>
+<!-- /.box-body -->
+<div class="box-footer form-group" >
+    		<label  class="col-sm-2 control-label" ></label>
+        		<button type="submit" class="btn btn-default " ng-click="cancel()" style='margin-right:1%;'>返回</button>
+            	<button type="submit" class="btn btn-success  " ng-click="ok()">编辑</button>
+    	</div>
+<!-- /.box-footer -->
+ </form>
+</div>

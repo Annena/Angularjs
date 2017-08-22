@@ -1,0 +1,40 @@
+{
+    "gatewayApp": {
+        "dataAcquisitionVariable" : {
+            "home": {
+                "title": "Data Acquisition Variables",
+                "createLabel": "Create a new Data Acquisition Variable",
+                "createOrEditLabel": "Create or edit a Data Acquisition Variable"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Data Acquisition Variable {{ id }}?"
+            },
+            "detail": {
+                "title": "Data Acquisition Variable"
+            },
+            "name": "Name",
+            "description": "Description",
+            "uint": "Uint",
+            "getCycle": "Get Cycle",
+            "dcAddrMapId": "Dc Addr Map Id",
+            "dcAddrMapName": "Dc Addr Map Name",
+            "offsetAddr": "Offset Addr",
+            "startAddr": "Start Addr",
+            "endAddr": "End Addr",
+            "valueType": "Value Type",
+            "dataType": "Data Type",
+            "dataBits": "Data Bits",
+            "readWriteType": "Read Write Type",
+            "byteCode": "Byte Code",
+            "funcCode": "Func Code",
+            "dataAcquisitionDevice": "Data Acquisition Device"
+        }
+    },
+    "configApp": {
+        "dataAcquisitionVariable" : {
+            "created": "A new Data Acquisition Variable is created with identifier {{ param }}",
+            "updated": "A Data Acquisition Variable is updated with identifier {{ param }}",
+            "deleted": "A Data Acquisition Variable is deleted with identifier {{ param }}"
+        }
+    }
+}

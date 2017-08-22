@@ -1,0 +1,27 @@
+{
+    "gatewayApp": {
+        "gatewayAttribute" : {
+            "home": {
+                "title": "Gateway Attributes",
+                "createLabel": "Create a new Gateway Attribute",
+                "createOrEditLabel": "Create or edit a Gateway Attribute"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Gateway Attribute {{ id }}?"
+            },
+            "detail": {
+                "title": "Gateway Attribute"
+            },
+            "name": "Name",
+            "value": "Value",
+            "gateway": "Gateway"
+        }
+    },
+    "configApp": {
+        "gatewayAttribute" : {
+            "created": "A new Gateway Attribute is created with identifier {{ param }}",
+            "updated": "A Gateway Attribute is updated with identifier {{ param }}",
+            "deleted": "A Gateway Attribute is deleted with identifier {{ param }}"
+        }
+    }
+}

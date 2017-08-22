@@ -1,0 +1,28 @@
+{
+    "gatewayApp": {
+        "monitorPointAttribute" : {
+            "home": {
+                "title": "Monitor Point Attributes",
+                "createLabel": "Create a new Monitor Point Attribute",
+                "createOrEditLabel": "Create or edit a Monitor Point Attribute"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Monitor Point Attribute {{ id }}?"
+            },
+            "detail": {
+                "title": "Monitor Point Attribute"
+            },
+            "name": "Name",
+            "value": "Value",
+            "appId": "App Id",
+            "monitorPoint": "Monitor Point"
+        }
+    },
+    "configApp": {
+        "monitorPointAttribute" : {
+            "created": "A new Monitor Point Attribute is created with identifier {{ param }}",
+            "updated": "A Monitor Point Attribute is updated with identifier {{ param }}",
+            "deleted": "A Monitor Point Attribute is deleted with identifier {{ param }}"
+        }
+    }
+}

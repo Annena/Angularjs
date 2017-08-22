@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="gatewayApp.monitorPointAttribute.detail.title">Monitor Point Attribute</span> {{vm.monitorPointAttribute.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="gatewayApp.monitorPointAttribute.name">Name</span></dt>
+        <dd>
+            <span>{{vm.monitorPointAttribute.name}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.monitorPointAttribute.value">Value</span></dt>
+        <dd>
+            <span>{{vm.monitorPointAttribute.value}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.monitorPointAttribute.appId">App Id</span></dt>
+        <dd>
+            <span>{{vm.monitorPointAttribute.appId}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.monitorPointAttribute.monitorPoint">Monitor Point</span></dt>
+        <dd>
+            <a ui-sref="monitor-point-iot-detail({id:vm.monitorPointAttribute.monitorPointId})">{{vm.monitorPointAttribute.monitorPointName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="monitor-point-attribute-iot-detail.edit({id:vm.monitorPointAttribute.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

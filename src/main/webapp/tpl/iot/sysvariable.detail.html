@@ -1,0 +1,93 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">系统变量详情</h1>
+</div>
+<div class="wrapper-md" ng-controller="SysVariableModifyCtrl">
+	<form class="form-horizontal" >
+	    <form class="form-horizontal" >
+	    <div class="row form-group">
+	    	<div class="col-sm-2 control-label ng-valid ">
+	    	           名称
+	    	</div>
+	        <div class="col-sm-2">
+	        	<span>{{sysvariable.name}}</span>
+	        </div> 
+	    </div>
+	    
+	    <div class="form-group">
+        	<div class="col-sm-2 control-label ng-valid ">
+	    	    描述
+	    	</div>
+            <div class="col-sm-2">
+            	<span>{{sysvariable.description}}</span>
+            </div>
+        </div>
+        
+        <div class="form-group">
+        	<div class="col-sm-2 control-label ng-valid ">
+	    	    单位
+	    	</div>
+            <div class="col-sm-2">
+            	<span>{{sysvariable.unit}}</span>
+            </div>
+        </div>
+        
+        <div class="form-group">
+        	<div class="col-sm-2 control-label ng-valid ">
+	    	    数据类型
+	    	</div>
+            <div class="col-sm-2">
+            	<span>{{sysvariable.dataType}}</span>
+            </div>
+        </div>
+        
+        <div class="form-group">
+        	<div class="col-sm-2 control-label ng-valid ">
+	    	    值类型
+	    	</div>
+            <div class="col-sm-2">
+            	<span>{{sysvariable.valueType}}</span>
+            </div>
+        </div>
+        
+        <div class="form-group">
+        	<div class="col-sm-2 control-label ng-valid ">
+	    	   是否周期上报
+	    	</div>
+            <div class="col-sm-2">
+            	<input type="checkbox" disabled ng-model="sysvariable.isCycleReport" ng-class="{checked:sysvariable.isCycleReport}" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+        	<div class="col-sm-2 control-label ng-valid ">
+	    	   是否变化上报
+	    	</div>
+            <div class="col-sm-2">
+            	<input type="checkbox" disabled ng-model="sysvariable.isChangeReport" ng-class="{checked:sysvariable.isChangeReport}" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+        	<div class="col-sm-2 control-label ng-valid ">
+	    	  上报周期
+	    	</div>
+            <div class="col-sm-2">
+            	<span>{{sysvariable.reportPeriod}}</span>
+            </div>
+        </div>
+        
+        <div class="form-group">
+        	<div class="col-sm-2 control-label ng-valid ">
+	    	  采样周期
+	    	</div>
+            <div class="col-sm-2">
+            	<span>{{sysvariable.samplingPeriod}}</span>
+            </div>
+        </div>
+	    
+		<div class="row form-group">
+		  	<label  class="col-sm-2 control-label" ></label>
+		  	<button type="submit" class="btn btn-default "  ng-click="cancel()" style='margin-right:1%;'>返回</button>
+		</div>
+    </form>
+</div>

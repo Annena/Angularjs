@@ -1,0 +1,24 @@
+
+<div class="hbox hbox-auto-xs hbox-auto-sm">
+  <div class="col w-md bg-light dk b-r bg-auto">
+    <div class="wrapper hidden-sm hidden-xs sidebar" id="email-menu">
+      <ul class="nav nav-pills nav-stacked nav-sm ">
+      	<li style="border-bottom:1px solid #ccc">
+          <a ui-sref="app.point.view.collector.list">
+            	返回采集设备列表
+          </a>
+        </li>
+        <li ng-class="{active:$state.includes('app.point.variable')}" style="margin-top:0;">
+          <a ui-sref="app.point.variable.list">
+          
+          <i class="icon fa fa-fw fa-list-ol"></i>
+            	采集变量
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col">
+    <div ui-view ></div>
+  </div>
+</div>

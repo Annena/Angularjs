@@ -1,0 +1,324 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">修改采集变量</h1>
+</div>
+<div class="wrapper-md" ng-controller="VariableEditCtrl">
+	<form class="form-horizontal" >
+		<h5>基本参数</h5>
+		<hr></hr>
+	    <div class="row form-group">
+	    	<div class="col-sm-2 control-label ng-valid ">
+	    	          名称
+	    	</div>
+	        <div class="col-sm-4">
+	           <input type="text" class="form-control" placeholder="AAAA" required="required" ng-model="variable.name" disabled>
+	        </div>
+	        <div class="col-sm-2 control-label ng-valid ">
+	    	          变量单位
+	    	</div>
+	        <div class="col-sm-4">
+	           <input type="text" class="form-control" placeholder="单位" ng-model="variable.unit">
+	        </div> 
+	    </div>	    
+	    <div class="form-group">
+        	<div class="col-sm-2 control-label ng-valid ">
+	    	    描述
+	    	</div>
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="variable.description"></textarea>
+            </div>
+        </div>
+        <h5>数据配置</h5>
+		<hr></hr>
+        <div class="row form-group">	    	 
+	        <div class="col-sm-2 control-label ng-valid ">
+	    	   数据类型
+	    	</div>
+	        <div class="col-sm-4">
+	        <select class="form-control" ng-model="variable.dataType" >	        
+				<option  value='{{key}}' ng-repeat="(key,value) in dataTypes" >{{value.value}}</option>				
+			</select>
+	        </div>
+	        <div class="col-sm-2 control-label ng-valid ">
+	    	   值类型
+	    	</div>
+	        <div class="col-sm-4">
+	        <select class="form-control" ng-model="variable.valueType" >	        
+				<option  value='{{key}}' ng-repeat="(key,value) in valueTypes" >{{value}}</option>				
+			</select>
+	        </div>
+	    </div>
+	    	    
+	    <div class="row form-group">	    	 
+	        <div class="col-sm-2 control-label ng-valid ">
+	    	  小数位
+	    	</div>
+	        <div class="col-sm-4">
+	        <select class="form-control" ng-model="variable.dataBits">	        
+				<option  value='{{key}}' ng-repeat="(key,value) in dataBits" >{{value}}</option>				
+			</select>
+	        </div>
+	        <div class="col-sm-2 control-label ng-valid ">
+	    	  读写模式
+	    	</div>
+	        <div class="col-sm-4">
+	        <select class="form-control" ng-model="variable.readWriteType">	        
+				<option  value='{{key}}' ng-repeat="(key,value) in readWriteTypes" >{{value}}</option>				
+			</select>
+	        </div>
+	    </div>
+	    
+	    <div class="row form-group">
+	    	 
+	        <label for="serie" class="col-sm-2 col-xs-2 col-md-2	col-lg-2 control-label" readonly>字节顺序</label>
+	    	<div class="col-sm-4">
+	    	<select class="form-control" ng-model="variable.byteOrder">	        
+				<option  value='{{key}}' ng-repeat="(key,value) in byteOrders" >{{value}}</option>				
+			</select>
+	        </div>
+	        <div class="col-sm-2 control-label ng-valid ">
+	    	  运行脚本
+	    	</div>
+	        <div class="col-sm-4" style="padding-top: 0px;">
+	        	<div class="checkbox">
+  					<label><input type="checkbox"  ng-model="variable.enableLua" style=" width: 24px;height: 24px;margin-top: 0px;" ng-change="luastrShow()"></label>
+				</div>
+	        </div>
+	    </div>	    
+	    <div class="row form-group" ng-class="{true:'luastrshow',false:'luastrhide'}[luastrshow]">
+	    	<div class="col-sm-2 control-label ng-valid ">
+	    	  Lua脚本
+	    	</div>
+	        <div class="col-sm-10">
+	       		<textarea class="form-control" rows="3" placeholder="Lua脚本" ng-model="variable.luaStr"></textarea>	        
+	        </div>
+	         
+	    </div>
+	    
+	    <div ng-class="{true:'comshow',false:'comhide'}[comShow]">
+	    <h5>地址设备参数</h5>
+		<hr></hr>
+		<div class="row form-group">
+	   		<div class="col-sm-2 control-label ng-valid ">
+	    	  	地址设备的类型
+	    	</div>
+	        <div class="col-sm-10">
+	        <select class="form-control" ng-model="variable.daAddrCfgType" ng-change="selectAddrCfgType()">	        
+				<option  value='{{key}}' ng-repeat="(key,value) in daAddrCfgTypes" >{{value}}</option>				
+			</select>
+	        </div>
+	    </div>
+	    <div ng-class="{false:'addrhide',true:'addrshow'}[className]">
+	    	<div class="row form-group">	    	
+	        	<div class="col-sm-2 control-label ng-valid ">
+	    	 	 	地址段区块号
+	    		</div>
+	        	<div class="col-sm-4">
+	        	<select class="form-control" ng-model="addrMap" ng-options="addrMap.name for addrMap in addrMaps">	       				
+				</select>
+	        	</div>
+	    		<div class="col-sm-2 control-label ng-valid ">
+	    	 		功能码
+	    		</div>
+	       		<div class="col-sm-4">
+	        	<select class="form-control" ng-model="variable.funcCode" >	        
+					<option  value='{{key}}' ng-repeat="(key,value) in funcCodes" >{{value.value}}</option>				
+				</select>	       
+	        	</div>
+	    	</div>
+	    	
+	    	<div class="row form-group">	    	
+	         	<div class="col-sm-2 control-label ng-valid ">
+	    	 		 地址偏移量
+	    		</div>
+	        	<div class="col-sm-4">
+	           		<input type="text" class="form-control" placeholder=0 ng-model="addrMap.addrPosOffset" disabled="disabled">
+	       		</div>
+	        	<div class="col-sm-2 control-label ng-valid ">
+	    	 	 	地址最大值
+	    		</div>
+	        	<div class="col-sm-4">
+	           		<input type="text" class="form-control" placeholder=0 ng-model="addrMap.addrMaxPos" disabled="disabled">
+	        	</div> 
+	    	</div>
+	    	<div class="row form-group">
+	    		<div class="col-sm-2 control-label ng-valid ">
+	    	  		相对开始地址
+	    		</div>
+	        	<div class="col-sm-4">
+	           		<input type="number" step='0.1' max={{absoluteEndMax}}  min=0  class="form-control" ng-init="variable.relativeStartAddr=0" ng-blur="checkStartAddr()" ng-model="variable.relativeStartAddr" ng-change="startAddr()">
+	           		<div ng-show="startAddrOver" class="glyphicon glyphicon-exclamation-sign" style='color:#e24c4f;padding-right:5px;padding-top:2px;'>必须为整数或一位小数或者地址过长</div>
+	        	</div>
+	        	<div class="col-sm-2 control-label ng-valid ">
+	    	          	相对结束地址
+	    		</div>
+	        	<div class="col-sm-4">
+	           		<input type="number"  step="0.1" max={{absoluteEndMax}}   min=0  class="form-control" ng-init="variable.relativeEndAddr=0" ng-blur="checkEndAddr()" ng-model="variable.relativeEndAddr" ng-change="endAddr()">
+	           		<div ng-if="endAddrOver" class="glyphicon glyphicon-exclamation-sign" style='color:#e24c4f;padding-right:5px;padding-top:2px;'>必须为整数或一位小数或者地址过长</div>
+	           		<div ng-if="endAddrOver1" class="glyphicon glyphicon-exclamation-sign" style='color:#e24c4f;padding-right:5px;padding-top:2px;'>结束地址不可小于开始地址</div>
+	        	</div>	        
+	    	</div>
+	    	<div class="row form-group">
+	    		<div class="col-sm-2 control-label ng-valid ">
+	    	 		实际开始地址
+	    		</div>
+	        	<div class="col-sm-4">
+	           		<input type="text" class="form-control" placeholder="实际地址" ng-model="variable.absoluteStartAddr" disabled="disabled">
+	        	</div>
+	        	<div class="col-sm-2 control-label ng-valid ">
+	    	 		实际结束地址
+	    		</div>
+	        	<div class="col-sm-4">
+	           		<input type="text" class="form-control" placeholder="实际地址" ng-model="variable.absoluteEndAddr" disabled="disabled">
+	        	</div>
+	    	</div> 	 	 
+	   </div>   	    
+	    <div  ng-class="{true:'addrhide',false:'addrshow'}[className]"> 
+		    <div class="row form-group">
+		    	<div class="col-sm-2 control-label ng-valid ">
+		    	 	发送命令串
+		    	</div>
+		         <div class="col-sm-4">
+		        	<div style="position:relative;display:inline-block">		        	
+			     		<input type="text" style="position:relative;display:inline-block" ng-model="variable.cmdStr" class="form-control" placeholder="请输入命令串" ng-blur="verifyCmdString()" ng-focus="getFocus()">
+			          	<select multiple class="form-control"  style='position:absolute;top:34px;z-index:999;width:100%;'  ng-model="cmdstring" ng-show="change"  ng-options="cmdstring.cmdStr for cmdstring in cmdstrings |filter:{cmdStr:variable.cmdStr}" ng-click="selectCmdString(cmdstring)">
+           				</select>
+	           		</div>
+	           		<div ng-if="!isCmdString" class="glyphicon glyphicon-exclamation-sign" style='color:#e24c4f;padding-right:5px;padding-top:2px;'> 你输入的格式不正确</div>
+		        </div>
+		        <div class="col-sm-2 control-label ng-valid ">
+		    	 	发送命令串类型
+		    	</div>
+		        <div class="col-sm-4">
+		        <select class="form-control" ng-model="variable.cmdStrType"  ng-change = "verifyCmdString()">	        
+					<option  value='{{key}}' ng-repeat="(key,value) in cmdStrTypes" >{{value}}</option>				
+				</select>
+		        </div> 
+		    </div>
+		    <div class="row form-group">
+		    	<div class="col-sm-2 control-label ng-valid ">
+		    	         超时等待时间
+		    	</div>
+		        <div class="col-sm-10">
+		           <input type="number" class="form-control" placeholder="100" min="0" ng-model="variable.cmdWaitTime">
+		        </div>
+		    </div>
+	  </div>
+	    </div>
+	    <div ng-class="{true:'opcshow',false:'opchide'}[opcShow]">
+		<h5>输入配置(OPC)</h5>
+		<hr></hr>		
+	        <div class="row form-group">	    	 
+	        	<div class="col-sm-2 control-label ng-valid ">
+	    	   		OPC设备
+	    		</div>
+	        	<div class="col-sm-4">
+	        		<input type="text" class="form-control" ng-init="variable.opcDevice='opc_device'"  ng-model="variable.opcDevice">
+	        	</div>
+	       		<div class="col-sm-2 control-label ng-valid ">
+	    	   		OPC组
+	    		</div>
+	        	<div class="col-sm-4">
+	        		<input type="text" class="form-control" ng-init="variable.opcGroup='opc_group'" ng-model="variable.opcGroup">
+	        	</div>
+	    	</div>
+	    	<div class="row form-group">
+	    		<div class="col-sm-2 control-label ng-valid ">
+	    	   		OPC标签
+	    		</div>
+	        	<div class="col-sm-4">
+	        		<input type="text" class="form-control" ng-init="variable.opcTags='opc_tags'" ng-model="variable.opcTags">
+	        	</div>
+	    	</div>		
+		</div>	    
+		<div ng-class="{true:'fnkShow',false:'fnkhide'}[fnkShow]">
+			<h5>输入参数(API)</h5>
+			<hr></hr>
+			<div class="row form-group">	    	 
+	        	<div class="col-sm-2 control-label ng-valid ">
+	    	   		参数1
+	    		</div>
+	        	<div class="col-sm-4">
+	        		<input type="text" class="form-control"  ng-model="variable.arg1">
+	        	</div>
+	       		<div class="col-sm-2 control-label ng-valid ">
+	    	   		参数2
+	    		</div>
+	        	<div class="col-sm-4">
+	        		<input type="text" class="form-control"  ng-model="variable.arg2">
+	        	</div>
+	    	</div>
+	    	<div class="row form-group">	    	 
+	        	<div class="col-sm-2 control-label ng-valid ">
+	    	   		参数3
+	    		</div>
+	        	<div class="col-sm-4">
+	        		<input type="text" class="form-control"  ng-model="variable.arg3">
+	        	</div>
+	       		<div class="col-sm-2 control-label ng-valid ">
+	    	   		参数4
+	    		</div>
+	        	<div class="col-sm-4">
+	        		<input type="text" class="form-control"  ng-model="variable.arg4">
+	        	</div>
+	    	</div>	
+			<div class="row form-group">	    	 
+	        	<div class="col-sm-2 control-label ng-valid ">
+	    	   		参数5
+	    		</div>
+	        	<div class="col-sm-4">
+	        		<input type="text" class="form-control"  ng-model="variable.arg5">
+	        	</div>
+	       		<div class="col-sm-2 control-label ng-valid ">
+	    	   		参数6
+	    		</div>
+	        	<div class="col-sm-4">
+	        		<input type="text" class="form-control"  ng-model="variable.arg6">
+	        	</div>
+	  		</div>
+	  		<div class="row form-group">	    	 
+	        	<div class="col-sm-2 control-label ng-valid ">
+	    	   		参数7
+	    		</div>
+	        	<div class="col-sm-4">
+	        		<input type="text" class="form-control"  ng-model="variable.arg7">
+	        	</div>
+	       		<div class="col-sm-2 control-label ng-valid ">
+	    	   		参数8
+	    		</div>
+	        	<div class="col-sm-4">
+	        		<input type="text" class="form-control"  ng-model="variable.arg8">
+	        	</div>
+	   		</div>
+	   		<div class="row form-group">	    	 
+	        	<div class="col-sm-2 control-label ng-valid ">
+	    	   		参数9
+	    		</div>
+	        	<div class="col-sm-4">
+	        		<input type="text" class="form-control"  ng-model="variable.arg9">
+	        	</div>
+	       		<div class="col-sm-2 control-label ng-valid ">
+	    	   		参数10
+	    		</div>
+	        	<div class="col-sm-4">
+	        		<input type="text" class="form-control"  ng-model="variable.arg10">
+	        	</div>
+	  		</div>
+		</div>
+		<div style="position:relative"> 
+      	 	<h5 style="display:inline-block;cursor:pointer;">自定义属性</h5> 
+			<button type="button" class="btn btn-success"  ng-click="Add()"  style="float:right;display:inline-block;margin-top:-5px;">添加</button>				
+			<hr style="border-top:0.5px solid #ccc;margin-top:0;"></hr>                          
+        </div>
+		<div style="padding-left:15px;padding-right:15px;position: relative;z-index: 999;">
+ 			<div class="col-sm-1"></div>
+        	<div class="form-group autoGridHeight col-sm-8">
+         		<div class="gridStyle" ng-grid="gridOptions"  style="max-height:200px;overflow:auto;overflow-x:hidden"></div>
+       		</div>
+      </div>
+		<div class="row form-group">
+		  	<label  class="col-sm-2 control-label" ></label>
+		  	<button type="submit" class="btn btn-default "  ng-click="cancel()" style='margin-right:1%;'>取消</button>
+			<button type="submit" class="btn btn-success "  ng-click="ok()" ng-disabled="!variable.name || isdisableok || isdisabled || !isOK || endAddrOver || startAddrOver">修改</button>
+		</div>
+    </form>
+</div>

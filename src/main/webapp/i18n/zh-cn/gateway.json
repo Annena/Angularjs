@@ -1,0 +1,30 @@
+{
+    "gatewayApp": {
+        "gateway" : {
+            "home": {
+                "title": "Gateways",
+                "createLabel": "Create a new Gateway",
+                "createOrEditLabel": "Create or edit a Gateway"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Gateway {{ id }}?"
+            },
+            "detail": {
+                "title": "Gateway"
+            },
+            "name": "Name",
+            "status": "Status",
+            "description": "Description",
+            "gatewayAttribute": "Gateway Attribute",
+            "workgroup": "Workgroup",
+            "gatewayType": "Gateway Type"
+        }
+    },
+    "configApp": {
+        "gateway" : {
+            "created": "A new Gateway is created with identifier {{ param }}",
+            "updated": "A Gateway is updated with identifier {{ param }}",
+            "deleted": "A Gateway is deleted with identifier {{ param }}"
+        }
+    }
+}

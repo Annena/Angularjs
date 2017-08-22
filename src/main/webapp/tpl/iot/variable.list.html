@@ -1,0 +1,19 @@
+<div ng-controller="VariableCtrl">
+<div class="bg-light lter b-b wrapper-md">
+  <h5 class="m-n font-thin h5">
+      <a class="cmd-button" ui-sref="app.point.point">监控点 : {{pointName}}</a> >>
+  	  <a class="cmd-button" ui-sref="app.point.view.collector.list">采集设备 : {{collectorName}}</a> >>
+  	      采集变量
+  </h5>
+</div>
+<div class="wrapper-md" >
+	<div>
+   		<button class="btn btn-blue" ng-click="create()"><span class="glyphicon glyphicon-plus"></span> 添加</button>
+	</div>
+  <div class="panel panel-default">
+    <div class="table-responsive">
+      <div ng-grid="gridOptions" style="min-height:400px" class="hiddenX"></div>
+    </div>
+  </div>
+</div>
+</div> 

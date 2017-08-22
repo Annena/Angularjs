@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "dataAcquisitionVariable",
+            "otherEntityName": "dataAcquisitionVariable",
+            "otherEntityRelationshipName": "dataAcquisitionDevice"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "monitorPoint",
+            "otherEntityName": "monitorPoint",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "code",
+            "javadoc": "采集设备编码",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170310080817",
+    "javadoc": "数据采集设备",
+    "entityTableName": "data_acquisition_device",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "microserviceName": "config",
+    "angularJSSuffix": "iot"
+}

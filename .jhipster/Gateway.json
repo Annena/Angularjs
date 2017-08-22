@@ -1,0 +1,54 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "gatewayAttribute",
+            "otherEntityName": "gatewayAttribute",
+            "otherEntityRelationshipName": "gateway"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "workgroup",
+            "otherEntityName": "workgroup",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "gatewayType",
+            "otherEntityName": "gatewayType",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "GatewayStatus",
+            "fieldValues": "INIT,ONLINE,OFFLINE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170310080817",
+    "javadoc": "网关",
+    "entityTableName": "gateway",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "microserviceName": "config",
+    "angularJSSuffix": "iot"
+}

@@ -1,0 +1,40 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">网关详情</h1>
+</div>
+<div class="wrapper-md">
+  <div class="panel panel-default">
+    <div>
+      <!-- Contextual button for informational alert messages -->
+      <ul class="list-inline">
+        <li><a ui-sref="app.table.creategate"><button type="button" class="btn btn-default Gateway_add" style="margin:10px;color:#1d75b3;" >添加网关</button></a></li>
+        <!--<li><a ui-sref="app.table.modification"><button type="button" class="btn btn-default Gateway_add" style="margin:10px;color:#1d75b3;" ng-click="Modify()">修改所选网关</button></a></li>-->
+        <!--<li><a href="#"><button type="button" class="btn btn-default Gateway_delete" style="margin:10px;color:#1d75b3;" ng-click="Delete()">删除所选网关</button></a></li>-->
+      </ul>
+
+    </div>
+    <div class="table-responsive">
+      <table ui-jq="dataTable" ui-options="{
+          sAjaxSource: 'vendor/jquery/datatables/datatable.json',
+          aoColumns: [
+            { mData: 'engine' },
+            { mData: 'browser' },
+            { mData: 'platform' },
+            { mData: 'version' },
+            { mData: 'grade' }
+          ]
+        }" class="table table-striped m-b-none">
+        <thead>
+          <tr>
+            <th  style="width:20%">Rendering engine</th>
+            <th  style="width:25%">Browser</th>
+            <th  style="width:25%">Platform(s)</th>
+            <th  style="width:15%">Engine version</th>
+            <th  style="width:15%">CSS grade</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

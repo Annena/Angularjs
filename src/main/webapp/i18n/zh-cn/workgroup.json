@@ -1,0 +1,29 @@
+{
+    "gatewayApp": {
+        "workgroup" : {
+            "home": {
+                "title": "Workgroups",
+                "createLabel": "Create a new Workgroup",
+                "createOrEditLabel": "Create or edit a Workgroup"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Workgroup {{ id }}?"
+            },
+            "detail": {
+                "title": "Workgroup"
+            },
+            "name": "Name",
+            "description": "Description",
+            "gatewayType": "Gateway Type",
+            "gateway": "Gateway",
+            "monitorPoint": "Monitor Point"
+        }
+    },
+    "configApp": {
+        "workgroup" : {
+            "created": "A new Workgroup is created with identifier {{ param }}",
+            "updated": "A Workgroup is updated with identifier {{ param }}",
+            "deleted": "A Workgroup is deleted with identifier {{ param }}"
+        }
+    }
+}

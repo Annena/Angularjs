@@ -1,0 +1,43 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">采集设备型号列表</h1>
+</div>
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-controller="devicesController">
+  <div class="col-sm-5">
+	<div class="wrapper-md devices">
+      <div class="b-a r r-2x tree well">
+        <div class="m-t-sm m-b-sm">
+       		<button ng-click="my_tree.collapse_all()" class="btn btn-default btn-sm">全部收缩</button>
+       		<button ng-click="my_tree.expand_all()" class="btn btn-default btn-sm">全部展开</button>
+    	</div>
+    	<div id="treeArea">
+        <abn-tree 
+          tree-data         = "my_data" 
+          tree-control      = "my_tree" 
+          on-select         = "showDevicesList(branch)" 
+          expand-level      = "1" 
+          initial-selection = "da_dev_type_1"
+          icon-leaf         = "fa fa-desktop"
+          icon-expand       = "fa fa-plus-square-o"
+          icon-collapse     = "fa fa-minus-square-o"
+          >
+        </abn-tree>
+    	</div>
+      </div>
+    </div> 
+  </div>
+  <div class="col-sm-7">
+    <div class="wrapper-md">
+      <!-- <div class="alert alert-info">{{output}}</div> -->
+		<div class="table-responsive">
+			<div ng-if="showList" ng-grid="gridOptions" style="min-height:520px;" class="hiddenX"></div>
+		</div>
+    </div>
+  </div>
+</div>
+<script>
+	$(function(){
+		var windowHeight = $(window).height();
+		var tree = $("#treeArea");
+		tree.css({"max-height":0.65*windowHeight,"overflow":"auto"});
+	});	
+</script>

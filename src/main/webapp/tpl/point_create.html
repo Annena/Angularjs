@@ -1,0 +1,80 @@
+<!-- Content Header (Page header) -->
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3" style="display:inline-block">监控点创建</h1>
+        <!--<a ui-sref="app.point.grid"><button class="btn btn-default" style="float:right">返回</button></a>  -->
+    </div>
+    <div class="wrapper-md" ng-controller="pointEdit" >
+    <form class="form-horizontal" style=""  >
+        <div class="box-body">
+           <div class="form-group">
+               <label for="name" class="col-sm-2 control-label ng-valid " ng-model="name"><span style="color:#e24c4f;padding-right:5px;padding-top:2px;" class="glyphicon glyphicon-asterisk"></span>监控点名称</label>
+                    <div class="col-sm-2">
+                       <input type="text" class="form-control" id="name" placeholder="AAAA" required="required" ng-model="point.name">
+                    </div>  
+          </div>
+          <div class="form-group">
+              <label  for="description" class="col-sm-2 control-label">描述</label>
+                    <div class="col-sm-6">
+                       <textarea class="form-control" rows="3" placeholder="Enter ..." id="description" ng-model="point.description"></textarea>
+              		</div>
+          </div>
+    	  <div class="form-group">
+           	  <label for="gateway_type_id" class="col-sm-2 control-label">网关</label>
+                  	<div class="col-sm-2">
+                    	<select class="form-control" ng-model="gatewaytype"  ng-options="gatewaytype.name   for gatewaytype in gatewaytypes" ng-change="Change()">
+                        	<option  value="">未绑定</option><!-- 这里是重点，必须将value值设置成空字符串，否则第一个选项还是会留空白出来--> 
+                    	</select>
+               		</div>
+		 </div>
+	     <div class="form-group">
+         	<label for="workgroup_id" class="col-sm-2 control-label">群组</label>
+				<div class="col-sm-2">
+                	<select class="form-control"  ng-model="workgroup"  ng-options="workgroup.name   for workgroup in workgroups" ng-disabled="flag">
+                       <option  value="">未分组</option><!-- 这里是重点，必须将value值设置成空字符串，否则第一个选项还是会留空白出来--> 
+                    </select>
+                </div>                                   
+         </div>
+         <div class="row form-group">
+         	<div class="col-sm-2 control-label ng-valid">自定义上报</div>
+	        <div class="col-sm-1" style="padding-top: 0px;padding-left:0px">
+	        	<div class="checkbox">
+	 				<label><input type="checkbox"  ng-model="point.enableCustomReport" style=" width: 24px;height: 24px;margin-top: 0px;"></label>
+				</div>
+	        </div>
+	        <div class="col-sm-1 control-label ng-valid " >运行脚本</div>
+        	<div class="col-sm-2" style="padding-top: 0px;">
+	        	<div class="checkbox">
+	 				<label><input type="checkbox"  ng-model="point.enableLua" style=" width: 24px;height: 24px;margin-top: 0px;" ng-change="luastrShow()"></label>
+				</div>
+       		</div> 	
+         </div>
+         <div class="row form-group" ng-class="{true:'luastrshow',false:'luastrhide'}[luastrshow]">
+	    	<div class="col-sm-2 control-label ng-valid ">
+	    	  Lua脚本
+	    	</div>
+	        <div class="col-sm-6">
+	        	<textarea class="form-control" rows="3" placeholder="Lua脚本" ng-model="point.luaStr"></textarea>
+	        </div>   
+	    </div>
+         
+        <div style="position:relative"> 
+        	<h4 style="display:inline-block;cursor:pointer;" ng-click="showAddAttr()">自定义属性</h4> 
+			<button type="button" class="btn btn-success"  ng-click="Add()"  style="float:right;display:inline-block;margin-top:-5px;">添加</button>				
+			<hr style="border-top:0.5px solid #ccc;margin-top:0;"></hr>                          
+       	</div>
+  		<div style="padding-left:15px;padding-right:15px;position: relative;z-index: 999;">
+  			<div class="col-sm-1"></div>
+	    	<div class="form-group autoGridHeight col-sm-8">
+	        	<div class="gridStyle" ng-grid="gridOptions" style="max-height:200px;overflow:auto;overflow-x:hidden"></div>
+	    	</div>
+      	</div>
+<!-- /.box-body -->
+        <div class="form-group" >
+        	<label  class="col-sm-2 control-label" ></label>
+            	<button type="submit" class="btn btn-default "  ng-click="Clear()" style='margin-right:1%;'>返回</button>
+				<button type="submit" class="btn btn-success "  ng-click="Ok()" ng-disabled="!point.name || isdisabled ||!isOK"  >创建</button>                                    
+        </div>
+<!-- /.box-footer -->
+</form>
+<!--box-body-->
+</div>

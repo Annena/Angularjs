@@ -1,0 +1,92 @@
+<div>
+    <h2 data-translate="gatewayApp.dataAcquisitionVariable.home.title">Data Acquisition Variables</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="data-acquisition-variable-iot.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="gatewayApp.dataAcquisitionVariable.home.createLabel">
+                        Create new Data Acquisition Variable
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="gatewayApp.dataAcquisitionVariable.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span data-translate="gatewayApp.dataAcquisitionVariable.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="uint"><span data-translate="gatewayApp.dataAcquisitionVariable.uint">Uint</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="getCycle"><span data-translate="gatewayApp.dataAcquisitionVariable.getCycle">Get Cycle</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dcAddrMapId"><span data-translate="gatewayApp.dataAcquisitionVariable.dcAddrMapId">Dc Addr Map Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dcAddrMapName"><span data-translate="gatewayApp.dataAcquisitionVariable.dcAddrMapName">Dc Addr Map Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="offsetAddr"><span data-translate="gatewayApp.dataAcquisitionVariable.offsetAddr">Offset Addr</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="startAddr"><span data-translate="gatewayApp.dataAcquisitionVariable.startAddr">Start Addr</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="endAddr"><span data-translate="gatewayApp.dataAcquisitionVariable.endAddr">End Addr</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="valueType"><span data-translate="gatewayApp.dataAcquisitionVariable.valueType">Value Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dataType"><span data-translate="gatewayApp.dataAcquisitionVariable.dataType">Data Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dataBits"><span data-translate="gatewayApp.dataAcquisitionVariable.dataBits">Data Bits</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="readWriteType"><span data-translate="gatewayApp.dataAcquisitionVariable.readWriteType">Read Write Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="byteCode"><span data-translate="gatewayApp.dataAcquisitionVariable.byteCode">Byte Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="funcCode"><span data-translate="gatewayApp.dataAcquisitionVariable.funcCode">Func Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dataAcquisitionDeviceName"><span data-translate="gatewayApp.dataAcquisitionVariable.dataAcquisitionDevice">Data Acquisition Device</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="dataAcquisitionVariable in vm.dataAcquisitionVariables track by dataAcquisitionVariable.id">
+                    <td><a ui-sref="data-acquisition-variable-iot-detail({id:dataAcquisitionVariable.id})">{{dataAcquisitionVariable.id}}</a></td>
+                    <td>{{dataAcquisitionVariable.name}}</td>
+                    <td>{{dataAcquisitionVariable.description}}</td>
+                    <td>{{dataAcquisitionVariable.uint}}</td>
+                    <td>{{dataAcquisitionVariable.getCycle}}</td>
+                    <td>{{dataAcquisitionVariable.dcAddrMapId}}</td>
+                    <td>{{dataAcquisitionVariable.dcAddrMapName}}</td>
+                    <td>{{dataAcquisitionVariable.offsetAddr}}</td>
+                    <td>{{dataAcquisitionVariable.startAddr}}</td>
+                    <td>{{dataAcquisitionVariable.endAddr}}</td>
+                    <td>{{dataAcquisitionVariable.valueType}}</td>
+                    <td>{{dataAcquisitionVariable.dataType}}</td>
+                    <td>{{dataAcquisitionVariable.dataBits}}</td>
+                    <td>{{dataAcquisitionVariable.readWriteType}}</td>
+                    <td>{{dataAcquisitionVariable.byteCode}}</td>
+                    <td>{{dataAcquisitionVariable.funcCode}}</td>
+                    <td>
+                        <a ui-sref="data-acquisition-device-iot-detail({id:dataAcquisitionVariable.dataAcquisitionDeviceId})">{{dataAcquisitionVariable.dataAcquisitionDeviceName}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="data-acquisition-variable-iot-detail({id:dataAcquisitionVariable.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="data-acquisition-variable-iot.edit({id:dataAcquisitionVariable.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="data-acquisition-variable-iot.delete({id:dataAcquisitionVariable.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+</div>

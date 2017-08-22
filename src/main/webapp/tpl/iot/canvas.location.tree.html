@@ -1,0 +1,28 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">网关地点重新分配</h1>
+</div>
+
+<div class="wrapper-md" ng-controller="CanvasLocationTree">
+	<div class="row">
+		<div class="wrapper-md devices">
+	    	<div id="treeArea">
+		        <abn-tree 
+		          tree-data         = "my_LocationData" 
+		          tree-control      = "my_LocationTree" 
+		          on-select         = "treeSeleced(branch)"  
+		          expand-level      = "4" 
+		          initial-selection = "da_dev_type_1"
+		          icon-leaf         = "fa fa-desktop"
+		          icon-expand       = "fa fa-plus-square-o"
+		          icon-collapse     = "fa fa-minus-square-o"
+		          >
+		        </abn-tree>
+	    	</div>
+	    </div>
+  </div>
+  <div class="form-group" >
+  	 <label  class="col-sm-2 control-label" ></label>
+     <button type="submit" class="btn btn-default "  ng-click="Cancel()" style='margin-right:1%;'>返回</button>
+	 <button type="submit" class="btn btn-success "  ng-click="Ok()" >确定</button>                                    
+  </div>    
+</div>

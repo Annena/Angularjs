@@ -1,0 +1,60 @@
+<!-- Content Wrapper. Contains page content -->
+    <!-- Content Header (Page header) -->
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3" style="display:inline-block">监控点详情</h1>
+    </div>
+
+    <!-- Main content -->
+    <!-- form start -->
+<div class="wrapper-md">
+    <form class="form-horizontal" ng-controller="pointDetails" style=""  >
+        <div class="box-body">
+       	  <div class="form-group">
+          	<label for="name" class="col-sm-2 control-label ng-valid ">监控点名称</label>
+            	<div class="col-sm-2">
+                	{{point.name}}
+             	</div>
+          </div>
+          <div class="form-group">
+           	<label for="tenant_id" class="col-sm-2 control-label ">ID</label>
+          	   	<div class="col-sm-2">
+          	   	{{point.id}}
+                </div>
+	      </div>
+	      <div class="form-group">
+          	<label  for="description" class="col-sm-2 control-label">描述</label>
+            	<div class="col-sm-6">
+            	{{point.description}}
+                </div>
+          </div>
+          <div class="form-group">
+          	<label for="gateway_type_id" class="col-sm-2 col-xs-2 col-md-2	col-lg-2 control-label" readonly>网关</label>
+            	<div class="col-sm-2">
+                	{{gatewaytype.name}}
+               	</div>
+      	  </div>
+       	  <div class='form-group'>
+          	<label for="workgroup_id" class="col-sm-2 col-xs-2 col-md-2	col-lg-2 control-label">群组</label>
+				<div class="col-sm-2">
+				{{workgroup.name}}
+             	</div>
+
+     	  </div>
+     	  <div ng-repeat="list in attrs" class='form-group'>
+           	<label  class="col-sm-2 control-label" >{{list.name}} :</label>
+             	<div class="col-sm-2">
+             	  {{list.value}}
+            	</div>
+           </div>
+	</div>
+<!-- /.box-body -->
+	<div class="box-footer form-group" >
+    	<label  class="col-sm-2 control-label" ></label>
+        	<button type="submit" class="btn btn-default " ng-click="Clear()" style='margin-right:1%;'>返回</button>
+            <button type="submit" class="btn btn-success  " ng-click="Ok()">编辑</button>
+    </div>
+<!-- /.box-footer -->
+</form>
+<!--box-body-->
+</div>
+ <!-- /.box -->

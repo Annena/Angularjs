@@ -1,0 +1,28 @@
+{
+    "gatewayApp": {
+        "gatewayType" : {
+            "home": {
+                "title": "Gateway Types",
+                "createLabel": "Create a new Gateway Type",
+                "createOrEditLabel": "Create or edit a Gateway Type"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Gateway Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Gateway Type"
+            },
+            "name": "Name",
+            "bindAttribute": "Bind Attribute",
+            "gateway": "Gateway",
+            "workgroup": "Workgroup"
+        }
+    },
+    "configApp": {
+        "gatewayType" : {
+            "created": "A new Gateway Type is created with identifier {{ param }}",
+            "updated": "A Gateway Type is updated with identifier {{ param }}",
+            "deleted": "A Gateway Type is deleted with identifier {{ param }}"
+        }
+    }
+}

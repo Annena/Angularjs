@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "gatewayType",
+            "otherEntityName": "gatewayType",
+            "otherEntityRelationshipName": "workgroup"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "gateway",
+            "otherEntityName": "gateway",
+            "otherEntityRelationshipName": "workgroup"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "monitorPoint",
+            "otherEntityName": "monitorPoint",
+            "otherEntityRelationshipName": "workgroup"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170310080817",
+    "javadoc": "工作组",
+    "entityTableName": "workgroup",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "microserviceName": "config",
+    "angularJSSuffix": "iot"
+}

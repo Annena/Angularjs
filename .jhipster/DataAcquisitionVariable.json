@@ -1,0 +1,85 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "dataAcquisitionDevice",
+            "otherEntityName": "dataAcquisitionDevice",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "uint",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "getCycle",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dcAddrMapId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dcAddrMapName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "offsetAddr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startAddr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "endAddr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valueType",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dataType",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dataBits",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "readWriteType",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "byteCode",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "funcCode",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20170310080817",
+    "javadoc": "数据采集变量",
+    "entityTableName": "data_acquisition_variable",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "microserviceName": "config",
+    "angularJSSuffix": "iot"
+}

@@ -1,0 +1,219 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">添加采集设备</h1>
+</div>
+<div class="wrapper-md" ng-controller="CollectorCreateCtrl">
+	<form class="form-horizontal" >
+		<h5>基本参数:</h5>
+		<hr></hr>
+	    <div class="row form-group">	    
+	    	<div class="col-sm-2 control-label ng-valid ">
+	    	    <span style="color:#e24c4f;padding-right:5px;padding-top:2px;" class="glyphicon glyphicon-asterisk"></span>
+	    	           设备名称
+	    	</div>
+	        <div class="col-sm-2">
+	           <input type="text" class="form-control" placeholder="AAAA"  ng-model="dev.name">
+	        </div> 
+	    </div>
+	    
+	    <div class="row form-group">
+	    	<div class="col-sm-2 control-label ng-valid ">
+	    	           设备描述
+	    	</div>
+	        <div class="col-sm-6">
+            	<textarea class="form-control" rows="3" placeholder="Enter ..." id="description" ng-model="dev.description"></textarea>
+            </div> 
+	    </div>
+	    
+	    <div class="form-group">
+            	<label for="collectorType" class="col-sm-2 col-xs-2 col-md-2	col-lg-2 control-label" readonly>
+            		<span style="color:#e24c4f;padding-right:5px;padding-top:2px;" class="glyphicon glyphicon-asterisk"></span>	类型</label>
+                	<div class="col-sm-2">
+                    	<select class="form-control" ng-change="selectType()" ng-model="collectorType"  ng-options="collectorType.name   for collectorType in collectorTypes">
+                        	<option value="">请选择</option>
+                        </select>
+                    </div>
+                    <label for="companie" class="col-sm-2 col-xs-2 col-md-2	col-lg-2 control-label" readonly>
+                    <span style="color:#e24c4f;padding-right:5px;padding-top:2px;" class="glyphicon glyphicon-asterisk"></span>	厂商</label>
+                	<div class="col-sm-2">
+                    	<select class="form-control" ng-change="selectCompany()" ng-model="companie"  ng-options="companie.name   for companie in companies ">
+                        	<option value="">请选择</option>
+                        </select>
+                    </div>
+       	</div>
+       	
+       	 
+       	<div class="form-group">
+            	<label for="serie" class="col-sm-2 col-xs-2 col-md-2	col-lg-2 control-label" readonly>	<span style="color:#e24c4f;padding-right:5px;padding-top:2px;" class="glyphicon glyphicon-asterisk"></span>	产品系列</label>
+	    	    <div class="col-sm-2">
+	    	    	<select class="form-control" ng-change="selectSeries()" ng-model="serie"  ng-options="serie.name   for serie in series">
+	                	<option	 value="">请选择</option>
+	            	</select>
+	         	</div>
+	        	<label for="seriesModel" class="col-sm-2 col-xs-2 col-md-2	col-lg-2 control-label" readonly>型号</label>
+	            	<div class="col-sm-2">
+	                	<select class="form-control" ng-change="selectSeriesModel()" ng-model="seriesModel"  ng-options="seriesModel.name for seriesModel in seriesModels " ng-disabled='!edit'>
+	                    	<option value="">请选择</options>
+	                   	</select>
+	           		</div>
+       	</div>
+       	
+       	
+       	<div class="row form-group " > 
+	    	<div class="col-sm-2 control-label ng-valid ">
+	    	           协议接口名称
+	    	</div>
+	        <div class="col-sm-2" >
+	        	{{dev.daDevProtocolName}}
+	        </div> 
+	        <div class="col-sm-2 control-label ng-valid ">
+	    	           物理链路
+	    	</div>
+	        <div class="col-sm-2">
+	       	 	{{dev.physicalLink}}
+	        </div>
+	    </div>	    		
+	    <div class="row form-group">
+		    <div class="col-sm-2 control-label ng-valid">运行脚本</div>
+	       	<div class="col-sm-2" style="padding-top: 0px;">
+	        	<div class="checkbox">
+	 				<label><input type="checkbox"  ng-model="dev.enableLua" style=" width: 24px;height: 24px;margin-top: 0px;" ng-change="luastrShow()"></label>
+				</div>
+	   		</div>
+   		</div>
+   		<div class="row form-group" ng-class="{true:'luastrshow',false:'luastrhide'}[luastrshow]">
+			<div class="col-sm-2 control-label ng-valid ">
+	 		 初始化Lua脚本
+			</div>
+	   		<div class="col-sm-6">
+	   			<textarea class="form-control" rows="3" placeholder="初始化Lua脚本" ng-model="dev.initLuaStr"></textarea>
+	   		</div>   
+	    </div>
+    	<div class="row form-group" ng-class="{true:'luastrshow',false:'luastrhide'}[luastrshow]">
+			<div class="col-sm-2 control-label ng-valid ">
+	 		 Lua脚本
+			</div>
+	   		<div class="col-sm-6">
+	   			<textarea class="form-control" rows="3" placeholder="Lua脚本" ng-model="dev.luaStr"></textarea>
+	   		</div>   
+	    </div>
+		<h5>物理链路参数</h5>	    
+	    <hr></hr>
+	    
+	    <div ng-class="{'addrhide':!isPPI}">
+	    <div class="form-group">
+            	<label for="serie" class="col-sm-2 col-xs-2 col-md-2	col-lg-2 control-label" readonly>串口名称</label>
+	    	    <div class="col-sm-2">
+	    		<select class="form-control"   ng-model="comData.comPort" ng-options="comPort for comPort in com_ports">
+				</select>
+	         	</div>
+	        	<label for="seriesModel" class="col-sm-2 col-xs-2 col-md-2	col-lg-2 control-label" readonly>windows串口名称</label>
+	            <div class="col-sm-2">
+	            <select class="form-control"  ng-model="comData.winComPort" ng-options="winComPort for winComPort in  win_com_ports">
+				</select>
+	           	</div>
+       	</div>
+       	
+       	<div class="form-group">
+            	<label for="bandRate" class="col-sm-2 col-xs-2 col-md-2	col-lg-2 control-label" readonly>波特率</label>
+	    	    <div class="col-sm-2">
+	    	   	<select class="form-control"  ng-model="comData.baudRate" ng-options="baudRate for baudRate in baudRates"></select>	    	    	
+	         	</div>
+	        	<label for="parity_bit" class="col-sm-2 col-xs-2 col-md-2	col-lg-2 control-label" readonly >校验位:</label>
+	            <div class="col-sm-2">
+           		<select class="form-control" ng-model="comData.parityBit"  ng-init="comData.parityBit='n'">
+					<option  value='{{key}}' ng-repeat="key in keys" ng-selected="comData.parityBit == key">{{parity_bits[key]}}</option>				
+				</select>
+	           	</div>
+       	</div>
+       	
+       	<div class="form-group">
+            	<label for="serie" class="col-sm-2 col-xs-2 col-md-2	col-lg-2 control-label" readonly>数据位</label>
+	    	    <div class="col-sm-2">
+	    	    <select class="form-control"  ng-model="comData.dataBit" ng-options="dataBit for dataBit in  data_bits">
+				</select>
+	         	</div>
+	        	<label for="seriesModel" class="col-sm-2 col-xs-2 col-md-2	col-lg-2 control-label" readonly>停止位:</label>
+	            	<div class="col-sm-2">
+	            	<select class="form-control" ng-model="comData.stopBit" ng-options="stopBit for stopBit in  stop_bits">
+					</select>
+	           		</div>
+       	</div>
+       	
+       	<div class="form-group">
+            	<label for="serie" class="col-sm-2 col-xs-2 col-md-2	col-lg-2 control-label" readonly>数据传输模式</label>
+	    	    <div class="col-sm-2">
+	    	    <select class="form-control"  ng-model="comData.transType" ng-options="transType for transType in  trans_types">
+				</select>
+	         	</div>
+	        	<label for="seriesModel" class="col-sm-2 col-xs-2 col-md-2	col-lg-2 control-label" readonly>设备地址</label>
+	            	<div class="col-sm-2">
+	                	<input type="number" min='0' onkeypress="return (/[\d^_]/.test(String.fromCharCode(event.keyCode)))" class="form-control" ng-init="comData.devAddr=1"  ng-model="comData.devAddr">
+
+	           		</div>
+       	</div>
+       	</div>
+       	
+       	<div ng-class="{'addrhide':!isOPC}">
+       		<div class="row form-group " > 
+	    		<div class="col-sm-2 control-label ng-valid ">
+	    	           	IP地址
+	    		</div>
+	       	 	<div class="col-sm-2">
+	           		<input type="text"  ng-blur="verifyIP(opcData.tcpIp)"  class="form-control" ng-init="opcData.tcpIp='1.0.0.0'" ng-model="opcData.tcpIp">
+	        		<div ng-if="isOpcShow" class="glyphicon glyphicon-exclamation-sign" style='color:#e24c4f;padding-right:5px;padding-top:2px;'> 你输入的IP地址不正确</div>
+	        	</div> 
+	        	<div class="col-sm-2 control-label ng-valid ">
+	    	          	 TCP端口
+	    		</div>
+	        	<div class="col-sm-2">
+	           		<input type="number" class="form-control"  ng-init="opcData.tcpPort=1" min="0" ng-model="opcData.tcpPort">
+	        	</div>
+	    	</div>
+	    	<div class="row form-group">	    
+	    		<div class="col-sm-2 control-label ng-valid ">
+	    	          	 Opc服务器
+	    		</div>
+	        	<div class="col-sm-2">
+	           		<input type="text" class="form-control" ng-init="opcData.progId=1" ng-model="opcData.progId">
+	        	</div> 
+	    	</div>
+       	</div>
+       	
+       	<div ng-class="{'addrhide':!isTCP}" >
+       		<div class="row form-group " > 
+	    		<div class="col-sm-2 control-label ng-valid ">
+	    	           	IP地址
+	    		</div>
+	       	 	<div class="col-sm-2">
+	           		<input type="text" ng-blur="verifyIP(tcpData.tcpIp)" class="form-control"  ng-model="tcpData.tcpIp" ng-init="tcpData.tcpIp='1.0.0.0'">
+	           	    <div ng-if="isTcpShow" class="glyphicon glyphicon-exclamation-sign" style='color:#e24c4f;padding-right:5px;padding-top:2px;'> 你输入的IP地址不正确</div>	           		
+	        	</div> 
+	        	<div class="col-sm-2 control-label ng-valid ">
+	    	          	 TCP端口
+	    		</div>
+	        	<div class="col-sm-2">
+	           		<input type="number" class="form-control" min="0" ng-init="tcpData.tcpPort=1" min="0" ng-model="tcpData.tcpPort">
+	        	</div>
+	    	</div>
+	    	
+       	</div>      	
+    </form>
+    <form class="form-horizontal">
+		<div style="position:relative"> 
+      	 	<h5 style="display:inline-block;cursor:pointer;">自定义属性</h5> 
+			<button type="button" class="btn btn-success"  ng-click="Add()"  style="float:right;display:inline-block;margin-top:-5px;">添加</button>				
+			<hr style="border-top:0.5px solid #ccc;margin-top:0;"></hr>                          
+        </div>
+		<div style="padding-left:15px;padding-right:15px;position: relative;z-index: 999;">
+ 			<div class="col-sm-1"></div>
+        	<div class="form-group autoGridHeight col-sm-8">
+         		<div class="gridStyle" ng-grid="gridOptions"  style="max-height:200px;overflow:auto;overflow-x:hidden"></div>
+       		</div>
+      </div>
+      <div class="row form-group">
+		<label  class="col-sm-2 control-label" ></label>
+		<button type="submit" class="btn btn-default "  ng-click="cancel()" style='margin-right:1%;'>取消</button>
+		<button type="submit" class="btn btn-success "  ng-click="ok()" ng-disabled="!dev.name || !serie.name || !isOK">确认</button>
+	 </div>
+	</form>
+</div>

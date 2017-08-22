@@ -1,0 +1,61 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "monitorPointAttribute",
+            "otherEntityName": "monitorPointAttribute",
+            "otherEntityRelationshipName": "monitorPoint"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "dataAcquisitionDevice",
+            "otherEntityName": "dataAcquisitionDevice",
+            "otherEntityRelationshipName": "monitorPoint"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "workgroup",
+            "otherEntityName": "workgroup",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "samplingPeriod",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "isChangeSample",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "reportItemsNum",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "reportPeriod",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20170310080817",
+    "javadoc": "监控点",
+    "entityTableName": "monitor_point",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceClass",
+    "microserviceName": "config",
+    "angularJSSuffix": "iot"
+}

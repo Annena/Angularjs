@@ -1,0 +1,138 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">画图</h1>
+</div>
+
+<ul id="contextmenu">	
+	<li id="menu_add"><a>添加</a></li>
+	<li id="menu_folded"><a>收起</a></li>
+	<li id="menu_unfolded"><a>展开</a></li>
+	<li id="menu_changelocation"><a>网关重新定位</a></li>
+	<li id="menu_delete"><a>删除该节点</a></li>
+</ul>
+
+<div class="wrapper-md hbox" ng-controller="CanvasController" style='position:relative;'>
+	<div class="row">		
+		<div class="col-sm-3" style="margin-top:-19px;padding:0px">
+		<div class="wrapper-md devices">
+	      <div class="b-a r r-2x tree well" style="padding:10px">
+	        <div class="m-t-sm m-b-sm">
+	       		<button ng-click="allBranchCtrl()" class="btn btn-default btn-sm">{{buttonContext}}</button>
+	       		<button ng-click="add_branch()" class="btn btn-success btn-sm">添加</button>
+	       		<button ng-click="edit_branch()" class="btn btn-success btn-sm">修改</button>
+	       		<button ng-click="delete_branch()" class="btn btn-success btn-sm" ng-class="{true:'',false:'disabled'}[candelete]">删除</button>
+	    	</div>
+	    	<div style="height:10px"></div>	
+	    	<form class="form-horizontal" style="background:#fff;margin:0 0 10px 0;padding:10px 0" ng-show="showAddBranch">
+	    		<div class="row form-group">	    
+			    	<div class="col-sm-4 control-label ng-valid ">
+			    	    <span style="color:#e24c4f;padding-right:5px;padding-top:2px;" class="glyphicon glyphicon-asterisk"></span>
+			    	           名称
+			    	</div>
+			        <div class="col-sm-7">
+			           <input type="text" class="form-control" required placeholder="AAAA"  ng-model="addBranchName">
+			        </div> 
+		    	</div>
+			    <div class="row form-group">
+					<label  class="col-sm-3 control-label" ></label>		
+					<button type="submit" class="btn btn-default "  ng-click="clearAddBranch()" style='margin-right:1%;'>取消</button>
+					<button type="submit" class="btn btn-success "  ng-click="addBranchOk()" ng-disabled="!addBranchName">确认</button>
+				 </div>
+	    	</form>
+	    	<form class="form-horizontal" style="background:#fff;margin:0 0 10px 0;padding:10px 0" ng-show="showEditBranch">
+	    		<div class="row form-group">	    
+			    	<div class="col-sm-4 control-label ng-valid ">
+			    	    <span style="color:#e24c4f;padding-right:5px;padding-top:2px;" class="glyphicon glyphicon-asterisk"></span>
+			    	           名称
+			    	</div>
+			        <div class="col-sm-7">
+			           <input type="text" class="form-control" placeholder="AAAA"  ng-model="editBranch.name">
+			        </div> 
+		    	</div>
+			    <div class="row form-group">
+					<label  class="col-sm-3 control-label" ></label>		
+					<button type="submit" class="btn btn-default "  ng-click="clearEditBranch()" style='margin-right:1%;'>取消</button>
+					<button type="submit" class="btn btn-success "  ng-click="editBranchOk()" ng-disabled="!editBranch.name">确认</button>
+				 </div> 
+	    	</form>
+	    	<div id="treeArea">
+	        <abn-tree 
+	          tree-data         = "my_data" 
+	          tree-control      = "my_tree" 
+	          on-select         = "treeSeleced(branch)"  
+	          expand-level      = "7" 
+	          initial-selection = "ROOT"
+	          icon-leaf         = "fa fa-desktop"
+	          icon-expand       = "fa fa-plus-square-o"
+	          icon-collapse     = "fa fa-minus-square-o"
+	          >
+	        </abn-tree>
+	    	</div>
+	    	
+	      </div>
+	    </div> 
+	  </div>
+		<div class="col-sm-9" id="canvasParent" style="padding:0px">
+			<div class="panel panel-default" style="border:1px solid #ccc;overflow:hidden">
+				<!--  div style="float:right;background-color:#F2F2F2;margin:0px 7px 0 0;padding:0;width:1502px;border:1px solid #000" > -->
+				<!-- 	<img alt="清空" title="清空" width="24" height="24" src='img/iot/images/topology/trash.fw.png' class="buttonStyle" ng-click="clear()"> -->
+				<div class="panel-heading" style="cursor: pointer;background-color:#F2F2F2;text-align:center;color:#000;">
+					<div class="row">
+						<div class="col-sm-5">
+							<div title="网关相关">
+					        	<!-- <div class="panel-headding" style="border-bottom:1px solid #ccc;cursor: pointer;background-color:#e4e4e4;text-align:center;" ng-click="toggle('device');">网关相关</div> -->
+					            <table id="device" width="100%" style="font-size:13px">
+					                <tr>
+					                	<td width="20%" align="center" >
+						                    <div draggable="false" ng-click="editor.lineType='line'">
+						                        <img  ng-click="editor.lineType='one';" src="img/iot/images/line1.png"  class="nodeStyle" />
+						                        <br><span>连线</span>
+						                    </div>
+						                </td>
+						                <td width="20%" align="center">
+						                    <div draggable="true" ng-mousedown="editor.icon='tpIcon_5';editor.icontext='网关';editor.nodeType='gateway';" ng-mouseup="editor.icon='';editor.icontext=''">
+						                        <img name="backGroundImg" src="img/iot/icon/tpIcon_5.png" class="nodeStyle"/>
+						                        <br><span>网关</span>
+						                    </div>
+						                </td>
+						                <td width="20%" align="center">
+						                    <div draggable="true" ng-mousedown="editor.icon='tpIcon_9';editor.icontext='监控点';editor.nodeType='monitor';" ng-mouseup="editor.icon='';editor.icontext=''">
+						                        <img name="backGroundImg" src="img/iot/icon/tpIcon_9.png" class="nodeStyle"/>
+						                        <br><span>监控点</span>
+						                    </div>
+						                </td>
+						                <td width="20%" align="center">
+						                    <div draggable="true" ng-mousedown="editor.icon='vr-selfdefined';editor.icontext='采集设备';editor.nodeType='device';" ng-mouseup="editor.icon='';editor.icontext=''">
+						                        <img name="backGroundImg" src="img/iot/icon/vr-selfdefined.png" class="nodeStyle"/>
+						                        <br><span>采集设备</span>
+						                    </div>
+					                	</td>
+					                	<td width="20%" align="center">
+						                    <div draggable="true" ng-mousedown="editor.icon='tpIcon_4';editor.icontext='采集变量';editor.nodeType='variable';" ng-mouseup="editor.icon='';editor.icontext=''">
+						                        <img name="backGroundImg" src="img/iot/icon/tpIcon_4.png" class="nodeStyle"/>
+						                        <br><span>采集变量</span>
+						                    </div>
+					                	</td>
+					                </tr>
+					            </table>
+					        </div>
+						</div>
+						<div class="col-sm-7 ">
+							<img alt="缩小" title="缩小" width="24" height="24" src='img/iot/images/topology/zoomSmall.png' class="buttonStyle" ng-click="zoomIn()">
+							<img alt="放大" title="放大" width="24" height="24" src='img/iot/images/topology/zoomBig.png' class="buttonStyle" ng-click="zoomOut()">
+							<img alt="导出" title="导出" width="24" height="24" src='img/iot/images/topology/copy.fw.png' class="buttonStyle" ng-click='saveImage()'>
+							<span class="buttonStyle" ng-click="select()"><input type="radio" name="modeRadio" value="normal" ng-checked=true ng-model='selected'/><lable>默认</lable> <input type="radio" name="modeRadio" value="select"  ng-model='selected'/><lable>框选</lable></span>
+							<span class="buttonStyle"><input type="checkbox" ng-model='zoomCheckbox' ng-change="zoom()" /><lable for="zoomCheckbox">鼠标缩放</lable></span>
+							<span class="buttonStyle"><button ng-click="save()">保存</button></span>
+						</div>	
+					</div>
+				</div>
+				<canvas id="drawCanvas" style="border:overflow: auto;background: #fff url(../img/iot/images/backimg.png);">
+					您的浏览器不支持html5!
+				</canvas>
+			</div>
+		</div>
+	</div>
+	<div id="editobject" class='col bg-white-only b-l bg-auto no-border-xs' style="position:absolute;top:0px;right:0px;z-index:777;width:50%;height:100%;display:none;max-height:90%;overflow-y:auto;">
+		<div ng-include="operation_object"></div>
+	</div>
+</div>

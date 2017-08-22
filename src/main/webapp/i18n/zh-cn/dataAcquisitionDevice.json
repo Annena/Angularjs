@@ -1,0 +1,28 @@
+{
+    "gatewayApp": {
+        "dataAcquisitionDevice" : {
+            "home": {
+                "title": "Data Acquisition Devices",
+                "createLabel": "Create a new Data Acquisition Device",
+                "createOrEditLabel": "Create or edit a Data Acquisition Device"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Data Acquisition Device {{ id }}?"
+            },
+            "detail": {
+                "title": "Data Acquisition Device"
+            },
+            "name": "Name",
+            "code": "Code",
+            "dataAcquisitionVariable": "Data Acquisition Variable",
+            "monitorPoint": "Monitor Point"
+        }
+    },
+    "configApp": {
+        "dataAcquisitionDevice" : {
+            "created": "A new Data Acquisition Device is created with identifier {{ param }}",
+            "updated": "A Data Acquisition Device is updated with identifier {{ param }}",
+            "deleted": "A Data Acquisition Device is deleted with identifier {{ param }}"
+        }
+    }
+}

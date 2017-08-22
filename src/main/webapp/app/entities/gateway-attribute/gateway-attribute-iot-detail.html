@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span data-translate="gatewayApp.gatewayAttribute.detail.title">Gateway Attribute</span> {{vm.gatewayAttribute.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span data-translate="gatewayApp.gatewayAttribute.name">Name</span></dt>
+        <dd>
+            <span>{{vm.gatewayAttribute.name}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.gatewayAttribute.value">Value</span></dt>
+        <dd>
+            <span>{{vm.gatewayAttribute.value}}</span>
+        </dd>
+        <dt><span data-translate="gatewayApp.gatewayAttribute.gateway">Gateway</span></dt>
+        <dd>
+            <a ui-sref="gateway-iot-detail({id:vm.gatewayAttribute.gatewayId})">{{vm.gatewayAttribute.gatewayName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="gateway-attribute-iot-detail.edit({id:vm.gatewayAttribute.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

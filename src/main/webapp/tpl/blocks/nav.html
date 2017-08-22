@@ -1,0 +1,63 @@
+<!-- list -->
+<ul class="nav">
+  
+  <li ng-class="{active:$state.includes('app.gateway')}">
+    <a ui-sref="app.gateway.gateway" class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="icon fa fa-fw fa-cubes"></i>
+      <span >网关</span>
+    </a>
+  </li>
+  <li ng-class="{active:$state.includes('app.workgroup')}">
+    <a ui-sref="app.workgroup.workgroup" class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="icon fa fa-fw fa-list-ol"></i>
+      <span>群组</span>
+    </a>
+  </li>
+  <li ng-class="{active:$state.includes('app.point')}">
+    <a ui-sref="app.point.point" class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="icon fa fa-fw fa-list-ol"></i>
+      <span>监控点</span>
+    </a>
+    <!-- <ul class="nav nav-sub dk">
+     <li ui-sref-active="active">
+        <a ui-sref="app.table.point">
+          <span>监控点</span>
+        </a>
+      </li> 
+    </ul> -->
+  </li>
+   <li ng-class="{active:$state.includes('app.devices')}">
+    <a ui-sref="app.devices.devices" class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="icon fa fa-fw fa-list-ol"></i>
+      <span>采集设备型号</span>
+    </a>
+  </li>
+  <li ng-class="{active:$state.includes('app.canvas')}">
+    <a ui-sref="app.canvas" class="auto">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="icon fa fa-fw fa-list-ol"></i>
+      <span>画图</span>
+    </a>
+  </li>
+  <li class="line dk hidden-folded"></li>
+</ul>
+<!-- / list -->

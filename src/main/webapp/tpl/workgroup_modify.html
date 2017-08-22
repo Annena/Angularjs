@@ -1,0 +1,42 @@
+<!-- Content Wrapper. Contains page content -->
+    <!-- Content Header (Page header) -->
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3" style="display:inline-block">群组修改</h1>
+       <!-- <a ui-sref="app.workgroup.workgroup"><button class="btn btn-default" style="float:right">返回</button></a> --> 
+    </div>
+
+    <!-- Main content -->
+    <!-- form start -->
+<div class="wrapper-md" ng-controller="groupModify" >
+    <form class="form-horizontal" style=""  >
+        <div class="box-body">
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label ng-valid " ng-model="gateway.name" >群组名</label>
+                    <div class="col-sm-2">
+                        {{gateway.name}}
+                    </div>
+             </div>
+             <div class="form-group">
+                <label for="tenant_id" class="col-sm-2 control-label" >群组ID</label>
+                     <div class="col-sm-2">
+                        {{gateway.id}}
+                    </div>
+            </div>
+       	    <div class="form-group">
+            	<label  for="description" class="col-sm-2 control-label">群组描述</label>
+                	<div class="col-sm-6">
+                    	<textarea class="form-control" rows="3" placeholder="Enter ..." id="description" ng-model="gateway.description"></textarea>
+                	</div>
+        	</div>	
+  	    </div>
+<!-- /.box-body -->
+        	<div class="box-footer form-group" >
+            	<label  class="col-sm-2 control-label"></label>
+               	    <button type="submit" class="btn btn-default " ng-click="Clear()" style='margin-right:1%;'>返回</button>
+                	<button type="submit" class="btn btn-success" ng-click="OK()" ng-disabled="isdisabled">修改</button>
+        	</div>
+<!-- /.box-footer -->
+</form>
+<!--box-body-->
+</div>
+<!-- /.box -->
